@@ -1,5 +1,6 @@
 function spinWheel() {
-    const wheel = document.getElementById('wheel');
+    const sections = document.querySelectorAll('.section');
+    const wheel = document.querySelector('.wheel');
     const spinBtn = document.getElementById('spin-btn');
     const result = document.getElementById('result');
 
@@ -23,14 +24,7 @@ function spinWheel() {
         // Enable button after spin
         spinBtn.disabled = false;
 
-        // Calculate which section is in the center
-        const totalRotation = rotation % 360;
-        const sectionAngle = 360 / 8; // 8 sections on the wheel image
-
-        // Calculate the index of the section the pointer is pointing to
-        const selectedSectionIndex = Math.floor(((totalRotation + sectionAngle / 2) % 360) / sectionAngle);
-
-        // Display result
-        result.textContent = `Selected section index: ${selectedSectionIndex}`;
+        // Hide the result
+        result.textContent = '';
     }, spinDuration);
 }
